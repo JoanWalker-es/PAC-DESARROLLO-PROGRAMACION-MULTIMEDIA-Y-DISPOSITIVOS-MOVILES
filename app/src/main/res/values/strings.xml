@@ -1,0 +1,36 @@
+<resources>
+    <string name="app_name">PAC_DESARROLLO</string>
+    <!--Strings Activity 1-->
+    <string name="PLAY">Play</string>
+    <string name="PAUSE">Pause</string>
+    <string name="STOP">Stop</string>
+    <string name="reproductor">REPRODUCTOR DE MÚSICA</string>
+    <string name="audio_terminado">La canción ha terminado</string>
+    <!--String Activity 2-->
+    <string name="bbdd">BASE DE DATOS</string>
+    <string name="text_btn_bbdd">OPERACION BBDD</string>
+    <string name="titulobbdd">OPERACIONES BBDD</string>
+    <!--Texto boton activity operaciones bbdd-->
+    <string name="crear_tabla">CREAR TABLA</string>
+    <string name="insertar_datos">INSERTAR DATOS</string>
+    <string name="consultar_bbdd">CONSULTAR DATOS</string>
+    <string name="borrar_tabla">BORRAR TABLA</string>
+    <!--Texto edittext opereaciones bbdd-->
+    <string name="texto_edittext_insert">Datos para insertar</string>
+    <string name="texto_edittext_consulta">Consulta</string>
+    <string name="insert_col_1">Código</string>
+    <string name="insert_col_2">Nombre</string>
+    <string name="insert_col_3">Apellidos</string>
+    <!--String Activity 3-->
+    <string name="camara">CAMARA</string>
+    <!--String Activity 4-->
+    <string name="galeria">GALERIA</string>
+    <!--Botones activities-->
+    <string name="act1">Activity1</string>
+    <string name="act2">Activity2</string>
+    <string name="act3">Activity3</string>
+    <string name="act4">Activity4</string>
+    <string name="volver">VOLVER</string>
+
+
+</resources>

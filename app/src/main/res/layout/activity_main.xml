@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/textview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/reproductor"
+        app:layout_constraintBottom_toTopOf="@+id/cassette"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:textStyle="italic"
+        android:textSize="25sp"
+        android:textAppearance="@style/TextAppearance.AppCompat.Title"
+        />
+
+
+    <ImageView
+        android:id="@+id/cassette"
+        android:layout_width="361dp"
+        android:layout_height="208dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:srcCompat="@drawable/cassette_sin" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guia_10"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.1"
+        />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guia_90"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.9"
+        />
+
+    <LinearLayout
+        android:id="@+id/botones_reproduccion"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/cassette"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/botonera_activities"
+
+        >
+        <Button
+            android:id="@+id/btn_play"
+            style="@style/Widget.MaterialComponents.Button.UnelevatedButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="30dp"
+            android:text="@string/PLAY"
+            app:layout_constraintStart_toStartOf="@id/guia_10"
+            app:layout_constraintTop_toBottomOf="@id/cassette" />
+
+        <Button
+            android:id="@+id/btn_stop"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/STOP"
+            style="@style/Widget.MaterialComponents.Button.UnelevatedButton"
+            app:layout_constraintEnd_toEndOf="@id/guia_90"
+            app:layout_constraintTop_toBottomOf="@id/cassette"
+            android:layout_margin="30dp"
+            />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/botonera_activities"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/botones_reproduccion"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        >
+        <Button
+            android:id="@+id/btn_act2"
+            style="@style/Widget.MaterialComponents.Button.UnelevatedButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/act2"
+            app:layout_constraintStart_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_margin="10dp"
+            android:textSize="12dp"
+            />
+
+        <Button
+            android:id="@+id/btn_act3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/act3"
+            style="@style/Widget.MaterialComponents.Button.UnelevatedButton"
+            app:layout_constraintStart_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_margin="10dp"
+            android:textSize="12dp"
+            />
+        <Button
+            android:id="@+id/btn_act4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/act4"
+            style="@style/Widget.MaterialComponents.Button.UnelevatedButton"
+            app:layout_constraintStart_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_margin="10dp"
+            android:textSize="12dp"
+            />
+
+
+
+    </LinearLayout>
+
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

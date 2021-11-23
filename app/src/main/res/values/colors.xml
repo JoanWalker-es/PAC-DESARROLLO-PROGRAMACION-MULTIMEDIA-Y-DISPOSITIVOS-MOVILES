@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="color_primary">#9ccc65</color>
+    <color name="color_primary_variant">#78AF35</color>
+
+    <color name="color_secondary">#dcedc8</color>
+    <color name="color_secondary_variant">#fffffb</color>
+
+    <color name="color_background">#EDEDED</color>
+    <color name="color_surface">#AFAFAF</color>
+    <color name="color_error">#f44336</color>
+
+    <color name="color_on_primary">@color/black</color>
+    <color name="color_on_secondary">@color/white</color>
+
+    <color name="color_on_background">@color/black</color>
+    <color name="color_on_surface">@color/black</color>
+    <color name="color_on_error">@color/white</color>
+
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+
+    <color name="transparent">#00000000</color>
+
+    <color name="mtrl_textinput_default_box_stroke_color">@color/color_primary</color>
+</resources>

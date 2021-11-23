@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".Activity3">
+
+    <TextView
+        android:id="@+id/camara"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/camara"
+        android:textAppearance="@style/TextAppearance.AppCompat.Title"
+        android:textSize="25sp"
+        android:textStyle="italic"
+        android:layout_gravity="center"
+        android:layout_margin="30dp"
+        />
+
+    <ImageView
+        android:id="@+id/image_view_foto"
+        android:layout_width="match_parent"
+        android:layout_height="400dp"
+        android:src="@drawable/camera"
+        />
+
+
+    <Button
+        android:id="@+id/btn_camara"
+        style="@style/Widget.MaterialComponents.Button.UnelevatedButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:text="@string/camara"
+        android:layout_gravity="center"
+        />
+
+    <Button
+        android:id="@+id/btn_act1"
+        style="@style/Widget.MaterialComponents.Button.UnelevatedButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:text="@string/act1"
+        android:layout_gravity="center"
+        />
+
+
+</androidx.appcompat.widget.LinearLayoutCompat>
