@@ -8,17 +8,18 @@ import android.widget.Toast
 import com.proyecto_final.pac_desarrollo.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
-    private lateinit var binding:ActivityMainBinding
+    private lateinit var binding: ActivityMainBinding
+
     //Creamos una variable de tipo MediaPlayer
-    private lateinit var mp:MediaPlayer
+    private lateinit var mp: MediaPlayer
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         //Seleccionamos el tema principal para que no de error con el splashscreen
         setTheme(R.style.Theme_PAC_DESARROLLO)
-        binding= ActivityMainBinding.inflate(layoutInflater)
-        val view=binding.root
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        val view = binding.root
         setContentView(view)
 
 
@@ -28,33 +29,33 @@ class MainActivity : AppCompatActivity() {
         //Ir a la Activity 2 y parar en caso de que se estuviese reproduciendo la música
         binding.btnAct2.setOnClickListener {
             stopAudio()
-            val intent=Intent(this,Activity2::class.java)
+            val intent = Intent(this, Activity2::class.java)
             startActivity(intent)
         }
         //Ir a la Activity 3 y parar en caso de que se estuviese reproduciendo la música
         binding.btnAct3.setOnClickListener {
             stopAudio()
-            val intent=Intent(this,Activity3::class.java)
+            val intent = Intent(this, Activity3::class.java)
             startActivity(intent)
         }
         //Ir a la Activity 4 y parar en caso de que se estuviese reproduciendo la música
         binding.btnAct4.setOnClickListener {
             stopAudio()
-            val intent= Intent(this,Activity4::class.java)
+            val intent = Intent(this, Activity4::class.java)
             startActivity(intent)
         }
 
     }
 
     //Iniciamos la variable Mediaplayer con la canción asociada
-    private fun initAudio(){
-        mp=MediaPlayer.create(this,R.raw.musica)
+    private fun initAudio() {
+        mp = MediaPlayer.create(this, R.raw.musica)
         /*Si termina la canción, con este listener lanzamos el metodo sotpAudio que para la
         canción y creamos una notificación con un toast
          */
-        mp.setOnCompletionListener { mp->
-        stopAudio()
-        Toast.makeText(this,getString(R.string.audio_terminado),Toast.LENGTH_LONG).show()
+        mp.setOnCompletionListener { mp ->
+            stopAudio()
+            Toast.makeText(this, getString(R.string.audio_terminado), Toast.LENGTH_LONG).show()
         }
         /*
         Si pulsamos el botón del play lo primero que hace es comprobar que la canción se escucha
@@ -62,9 +63,9 @@ class MainActivity : AppCompatActivity() {
         y si no, llamamos al método playAudio para seguir reproduciendola.
          */
         binding.btnPlay.setOnClickListener {
-            if(mp.isPlaying){
+            if (mp.isPlaying) {
                 pauseAudio()
-            }else{
+            } else {
                 playAudio()
             }
         }
@@ -79,19 +80,21 @@ class MainActivity : AppCompatActivity() {
     para que cambie el texto del botón PLAY. Así, cuando está reproduciendo la canción aparecerá
     Pause para parar la canción, y cuando esté parada volvemos a poner el texto Play.
      */
-    private fun playAudio(){
+    private fun playAudio() {
         mp.start()
-        binding.btnPlay.text= getString(R.string.PAUSE)
+        binding.btnPlay.text = getString(R.string.PAUSE)
     }
-    private fun stopAudio(){
+
+    private fun stopAudio() {
         mp.stop()
         mp.prepare()
         mp.seekTo(0)
-        binding.btnPlay.text= getString(R.string.PLAY)
+        binding.btnPlay.text = getString(R.string.PLAY)
     }
-    private fun pauseAudio(){
+
+    private fun pauseAudio() {
         mp.pause()
-        binding.btnPlay.text= getString(R.string.PLAY)
+        binding.btnPlay.text = getString(R.string.PLAY)
     }
 
 }

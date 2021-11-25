@@ -10,26 +10,24 @@ import android.widget.Toast
 import android.database.Cursor
 
 
-
-
 class Activity2 : AppCompatActivity() {
-    private lateinit var binding:Activity2Binding
+    private lateinit var binding: Activity2Binding
 
-    private var tabla_exits =false
+    private var tabla_exits = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding= Activity2Binding.inflate(layoutInflater)
-        val view=binding.root
+        binding = Activity2Binding.inflate(layoutInflater)
+        val view = binding.root
         setContentView(view)
 
-        Toast.makeText(applicationContext,"Estas en la Activity 2", Toast.LENGTH_SHORT).show()
+        Toast.makeText(applicationContext, "Estas en la Activity 2", Toast.LENGTH_SHORT).show()
 
         val preferencias = getSharedPreferences("base_datos", Context.MODE_PRIVATE)
-        val editor=preferencias.edit()
+        val editor = preferencias.edit()
 
         //Extraemos el valor del fichero SharedPreferences
-        tabla_exits=preferencias.getBoolean("Tabla",false)
+        tabla_exits = preferencias.getBoolean("Tabla", false)
 
         /*Creación de tablas
         Primero comprobamos si anteriormente se ha creado una tabla mirando el fichero SharedPreferences.
@@ -40,15 +38,17 @@ class Activity2 : AppCompatActivity() {
         */
         binding.btnCrear.setOnClickListener {
 
-            if(tabla_exits){
-                Toast.makeText(applicationContext,"La tabla ya estaba creada", Toast.LENGTH_LONG).show()
-            }else{
-                val bd=Operaciones_bbdd(this,"PAC_DESARROLLO",1)
-                Toast.makeText(applicationContext,"Tabla creada correctamente", Toast.LENGTH_LONG).show()
+            if (tabla_exits) {
+                Toast.makeText(applicationContext, "La tabla ya estaba creada", Toast.LENGTH_LONG)
+                    .show()
+            } else {
+                val bd = Operaciones_bbdd(this, "PAC_DESARROLLO", 1)
+                Toast.makeText(applicationContext, "Tabla creada correctamente", Toast.LENGTH_LONG)
+                    .show()
 
-                editor.putBoolean("Tabla",true)
+                editor.putBoolean("Tabla", true)
                 editor.commit()
-                tabla_exits=true
+                tabla_exits = true
             }
 
         }
@@ -62,22 +62,30 @@ class Activity2 : AppCompatActivity() {
          */
         binding.btnInsertar.setOnClickListener {
 
-            if(tabla_exits){
-                if(compruebaTexto()){
-                    val admin=Operaciones_bbdd(this,"PAC_DESARROLLO",1)
-                    val bd=admin.writableDatabase
+            if (tabla_exits) {
+                if (compruebaTexto()) {
+                    val admin = Operaciones_bbdd(this, "PAC_DESARROLLO", 1)
+                    val bd = admin.writableDatabase
                     val registro = ContentValues()
                     registro.put("nombre", binding.titCol1.text.toString())
                     registro.put("apellidos", binding.titCol2.text.toString())
                     bd.insert("Alumnos", null, registro)
                     bd.close()
-                    Toast.makeText(applicationContext,"Datos insertados correctamente", Toast.LENGTH_LONG).show()
+                    Toast.makeText(
+                        applicationContext,
+                        "Datos insertados correctamente",
+                        Toast.LENGTH_LONG
+                    ).show()
                     limpiaCampos()
-                }else{
-                    Toast.makeText(applicationContext,"No se han podido insertar los datos", Toast.LENGTH_LONG).show()
+                } else {
+                    Toast.makeText(
+                        applicationContext,
+                        "No se han podido insertar los datos",
+                        Toast.LENGTH_LONG
+                    ).show()
                 }
-            }else{
-                Toast.makeText(this,"NO SE HA CREADO LA TABLA",Toast.LENGTH_LONG).show()
+            } else {
+                Toast.makeText(this, "NO SE HA CREADO LA TABLA", Toast.LENGTH_LONG).show()
             }
 
 
@@ -89,15 +97,15 @@ class Activity2 : AppCompatActivity() {
         antes de intentar consultar datos.
          */
         binding.btnConsultar.setOnClickListener {
-            val intent=Intent(this,Activity2_consultas::class.java)
-            intent.putExtra("TABLA_CREADA",tabla_exits)
+            val intent = Intent(this, Activity2_consultas::class.java)
+            intent.putExtra("TABLA_CREADA", tabla_exits)
             startActivity(intent)
         }
 
 
         //Volver a la activity 1 eliminando de la pila esta activity
         binding.btnAct1.setOnClickListener {
-            val intent= Intent(this,MainActivity::class.java)
+            val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
             finish()
         }
@@ -105,19 +113,27 @@ class Activity2 : AppCompatActivity() {
     }
 
     //Funcion que comprueba que los campos no estén vacíos
-    private fun compruebaTexto():Boolean {
-        if(binding.titCol1.text.isNullOrBlank()){
-            Toast.makeText(applicationContext,"No hay datos que insertar en el campo nombre", Toast.LENGTH_LONG).show()
+    private fun compruebaTexto(): Boolean {
+        if (binding.titCol1.text.isNullOrBlank()) {
+            Toast.makeText(
+                applicationContext,
+                "No hay datos que insertar en el campo nombre",
+                Toast.LENGTH_LONG
+            ).show()
             return false
-        }else if(binding.titCol2.text.isNullOrBlank() ){
-            Toast.makeText(applicationContext,"No hay datos que insertar en el campo apellidos", Toast.LENGTH_LONG).show()
+        } else if (binding.titCol2.text.isNullOrBlank()) {
+            Toast.makeText(
+                applicationContext,
+                "No hay datos que insertar en el campo apellidos",
+                Toast.LENGTH_LONG
+            ).show()
             return false
         }
         return true
     }
 
     //Funcion que limpia los dos edittext
-    private fun limpiaCampos(){
+    private fun limpiaCampos() {
         binding.titCol1.setText("")
         binding.titCol2.setText("")
     }

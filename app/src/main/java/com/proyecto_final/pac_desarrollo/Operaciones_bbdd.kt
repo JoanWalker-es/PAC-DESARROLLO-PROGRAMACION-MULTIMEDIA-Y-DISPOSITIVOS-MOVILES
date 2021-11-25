@@ -5,7 +5,8 @@ import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
 import android.widget.Toast
 
-class Operaciones_bbdd(context: Context, DATABASE_NAME: String?, DATABASE_VERSION: Int): SQLiteOpenHelper(context,DATABASE_NAME,null,DATABASE_VERSION) {
+class Operaciones_bbdd(context: Context, DATABASE_NAME: String?, DATABASE_VERSION: Int) :
+    SQLiteOpenHelper(context, DATABASE_NAME, null, DATABASE_VERSION) {
 
 
     override fun onCreate(db: SQLiteDatabase?) {
